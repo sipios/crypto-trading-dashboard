@@ -28,7 +28,8 @@ class OrderSender extends React.Component {
   };
   render() {
     const fieldPlaceholder =
-      '{"orders": [{"type": "BUY","amount": 1000.2,"timestamp": "2019-01-25T23:20:44"},';
+      '{"orders": [{"type": "BUY","amount": 1000.2,"timestamp": "2019-01-25T23:20:44"}]}';
+    // TODO : Add the same custom input and button for the SMA coin
     return (
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
@@ -50,25 +51,6 @@ class OrderSender extends React.Component {
             onClick={event => this.handleSubmit(event, "ARI")}
           >
             Envoyer ordres Aricoin
-          </Button>
-          <CustomInput
-            id="SMA"
-            formControlProps={{
-              fullWidth: true
-            }}
-            inputProps={{
-              multiline: true,
-              rows: 5,
-              value: this.state.orderFields["SMA"],
-              onChange: event => this.handleChange(event, "SMA"),
-              placeholder: fieldPlaceholder
-            }}
-          />
-          <Button
-            color="primary"
-            onClick={event => this.handleSubmit(event, "SMA")}
-          >
-            Envoyer ordres Smartcoin
           </Button>
         </GridItem>
       </GridContainer>

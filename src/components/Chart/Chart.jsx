@@ -8,7 +8,8 @@ class Chart extends React.Component {
     series: []
   };
   componentDidMount = async () => {
-    const series = await getSeriesData();
+    // TODO : Call getSeries data to fetch the series
+    const series = [];
     this.setState({
       series
     });

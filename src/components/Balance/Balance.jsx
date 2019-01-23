@@ -14,7 +14,9 @@ class Balance extends React.Component {
     capitals: []
   };
   componentDidMount = async () => {
-    const me = await getMyData();
+    // TODO : Call getMyData data to fetch the series
+
+    const me = { capital: null, capitals: [] };
     this.setState({
       balance: me.capital,
       capitals: me.capitals
