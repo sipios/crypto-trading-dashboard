@@ -8,20 +8,13 @@ import UserProfilePage from "views/UserProfile/UserProfile.jsx";
 
 const dashboardRoutes = [
   {
-    path: "/dashboard",
-    sidebarName: "Dashboard",
-    navbarName: "Dashboard Trading",
-    icon: Dashboard,
-    component: DashboardPage
-  },
-  {
     path: "/about",
     sidebarName: "L'Entreprise",
     navbarName: "A propos de l'entreprise",
     icon: Person,
     component: UserProfilePage
   },
-  { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
+  { redirect: true, path: "/", to: "/about", navbarName: "Redirect" }
 ];
 
 export default dashboardRoutes;

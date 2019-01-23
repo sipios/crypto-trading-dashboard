@@ -20,44 +20,8 @@ class Dashboard extends React.Component {
     return (
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={3}>
-            <Balance />
-          </GridItem>
-          <GridItem xs={12} sm={12} md={9}>
+          <GridItem xs={12} sm={12} md={12}>
             <Ranking />
-          </GridItem>
-        </GridContainer>
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={6}>
-            <Card chart>
-              <Chart />
-              <CardBody>
-                <h4 className={classes.cardTitle}>Crypto Perf</h4>
-                <p className={classes.cardCategory}>
-                  Derniers chiffres du marché
-                </p>
-              </CardBody>
-              <CardFooter chart>
-                <div className={classes.stats}>
-                  <AccessTime /> Marchés ouverts de 21h30 à 22h30
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
-            <Card>
-              <CardHeader color="primary">
-                <h4 className={classes.cardTitleWhite}>Carnet d'ordres</h4>
-                <p className={classes.cardCategoryWhite}>
-                  Tout ordre doit être programmé entre 21h30 (inclus) et 22h30
-                  (exclus). Tout nouveau carnet d'ordre envoyé annule le
-                  précédent.
-                </p>
-              </CardHeader>
-              <CardBody>
-                <OrderSender />
-              </CardBody>
-            </Card>
           </GridItem>
         </GridContainer>
       </div>
