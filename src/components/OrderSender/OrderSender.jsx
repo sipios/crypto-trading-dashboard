@@ -10,8 +10,8 @@ import { areValidOrders, sendOrders } from "helpers/helpers";
 class OrderSender extends React.Component {
   state = {
     orderFields: {
-      smartcoin: "",
-      aricoin: ""
+      SMA: "",
+      ARI: ""
     }
   };
   handleChange = (event, coin) => {
@@ -28,45 +28,45 @@ class OrderSender extends React.Component {
   };
   render() {
     const fieldPlaceholder =
-      '{"orders": [{"type": "BUY","amount": 1000.2,"timestamp": "2019-01-21T23:20:44+00:00"}]}';
+      '{"orders": [{"type": "BUY","amount": 1000.2,"timestamp": "2019-01-25T23:20:44"},';
     return (
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <CustomInput
-            id="aricoin"
+            id="ARI"
             formControlProps={{
               fullWidth: true
             }}
             inputProps={{
               multiline: true,
               rows: 5,
-              value: this.state.orderFields["aricoin"],
-              onChange: event => this.handleChange(event, "aricoin"),
+              value: this.state.orderFields["ARI"],
+              onChange: event => this.handleChange(event, "ARI"),
               placeholder: fieldPlaceholder
             }}
           />
           <Button
             color="primary"
-            onClick={event => this.handleSubmit(event, "aricoin")}
+            onClick={event => this.handleSubmit(event, "ARI")}
           >
             Envoyer ordres Aricoin
           </Button>
           <CustomInput
-            id="smartcoin"
+            id="SMA"
             formControlProps={{
               fullWidth: true
             }}
             inputProps={{
               multiline: true,
               rows: 5,
-              value: this.state.orderFields["smartcoin"],
-              onChange: event => this.handleChange(event, "smartcoin"),
+              value: this.state.orderFields["SMA"],
+              onChange: event => this.handleChange(event, "SMA"),
               placeholder: fieldPlaceholder
             }}
           />
           <Button
             color="primary"
-            onClick={event => this.handleSubmit(event, "smartcoin")}
+            onClick={event => this.handleSubmit(event, "SMA")}
           >
             Envoyer ordres Smartcoin
           </Button>

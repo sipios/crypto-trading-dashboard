@@ -32,7 +32,7 @@ class Ranking extends React.Component {
         <CardBody>
           <Table
             tableHeaderColor="success"
-            tableHead={["ID", "Name", "Balance", "Difficulté"]}
+            tableHead={["Name", "Balance", "Difficulté"]}
             tableData={this.state.ranking}
           />
         </CardBody>

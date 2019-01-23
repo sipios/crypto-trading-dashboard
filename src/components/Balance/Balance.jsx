@@ -10,12 +10,14 @@ import { getMyData } from "helpers/helpers";
 
 class Balance extends React.Component {
   state = {
-    balance: null
+    balance: null,
+    capitals: []
   };
   componentDidMount = async () => {
     const me = await getMyData();
     this.setState({
-      balance: me.capital
+      balance: me.capital,
+      capitals: me.capitals
     });
   };
   render() {
@@ -29,6 +31,11 @@ class Balance extends React.Component {
           <p className={classes.cardCategory}>Cash</p>
           <h3 className={classes.cardTitle}>
             {this.state.balance ? `${this.state.balance}€` : "?"}
+          </h3>
+          <h3 className={classes.cardTitle}>
+            {this.state.capitals.map(c => (
+              <div key={c.name}>{c.name + " " + c.capital}</div>
+            ))}
           </h3>
         </CardHeader>
         <CardFooter stats />

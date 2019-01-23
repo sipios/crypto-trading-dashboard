@@ -1,14 +1,21 @@
 import _ from "lodash";
 
 export const getRankingData = async () => {
-  const response = await fetch("http://localhost:8000/ranking");
-  const ranking = await response.json();
+  const response = await fetch(
+    "http://ec2-3-8-126-0.eu-west-2.compute.amazonaws.com/api/ranking"
+  );
+  const rawRanking = await response.json();
+  const ranking = rawRanking.players.map(r =>
+    _.values({ ...r, capital: `${r.capital}€` })
+  );
 
   return ranking;
 };
 
 export const getSeriesData = async () => {
-  const seriesResponse = await fetch("http://localhost:8000/series");
+  const seriesResponse = await fetch(
+    "http://ec2-3-8-126-0.eu-west-2.compute.amazonaws.com/api/series/all"
+  );
   const rawSeries = await seriesResponse.json();
   const series = rawSeries.map(s => ({
     name: s.name,
@@ -19,7 +26,14 @@ export const getSeriesData = async () => {
 };
 
 export const getMyData = async () => {
-  const balanceResponse = await fetch("http://localhost:8000/me");
+  const balanceResponse = await fetch(
+    "http://ec2-3-8-126-0.eu-west-2.compute.amazonaws.com/api/me",
+    {
+      headers: {
+        token: getToken()
+      }
+    }
+  );
   const me = await balanceResponse.json();
 
   return me;
@@ -57,15 +71,18 @@ export const areValidOrders = input => {
 };
 
 export const sendOrders = async (coin, order) => {
-  const response = await fetch(`http://localhost:8000/${coin}/orders`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      token: getToken()
-    },
-    body: order
-  });
+  const response = await fetch(
+    `http://ec2-3-8-126-0.eu-west-2.compute.amazonaws.com/api/${coin}/orders`,
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        token: getToken()
+      },
+      body: order
+    }
+  );
   if (response.status === 200) {
     alert("Les ordres ont bien été envoyés");
   } else {
@@ -74,5 +91,5 @@ export const sendOrders = async (coin, order) => {
 };
 
 export const getToken = () => {
-  return "";
+  return "f5768147-fae0-4fdb-8da1-281dfbde1a50";
 };
